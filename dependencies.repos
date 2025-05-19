@@ -1,0 +1,9 @@
+repositories:
+  src/industrial_assets:
+    type: git
+    url: https://gitlab.cc-asp.fraunhofer.de/ipa326/ros-industrial/industrial_assets.git
+    version: main
+  src/mujoco_ros2_control:
+    type: git
+    url: https://gitlab.cc-asp.fraunhofer.de/ipa326/ros-industrial/mujoco_ros2_control.git
+    version: jazzy
