@@ -8,10 +8,10 @@ import xacro
  
  
 def generate_launch_description():
-    mujoco_ros2_control_demos_path = os.path.join(
+    mujoco_accesories_example_path = os.path.join(
         get_package_share_directory('mujoco_accessories'))
  
-    xacro_file = os.path.join(mujoco_ros2_control_demos_path,
+    xacro_file = os.path.join(mujoco_accesories_example_path,
                               'urdf',
                               'ridgeback.urdf.xacro')
  
@@ -19,7 +19,7 @@ def generate_launch_description():
     xacro.process_doc(doc)
     robot_description = {'robot_description': doc.toxml()}
  
-    controller_config_file = os.path.join(mujoco_ros2_control_demos_path, 'configs', 'ridgeback_controllers.yaml')
+    controller_config_file = os.path.join(mujoco_accesories_example_path, 'configs', 'ridgeback_controllers.yaml')
  
     node_mujoco_ros2_control = Node(
         package='mujoco_ros2_control',
@@ -28,7 +28,7 @@ def generate_launch_description():
         parameters=[
             robot_description,
             controller_config_file,
-            {'mujoco_model_path':os.path.join(mujoco_ros2_control_demos_path, 'robot', 'ridgeback_default.xml')},
+            {'mujoco_model_path':os.path.join(mujoco_accesories_example_path, 'robot', 'ridgeback_default.xml')},
             {"use_sim_time": True}
         ]
     )

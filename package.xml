@@ -9,12 +9,18 @@
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 
-  <depend>rclcpp</depend>
+  <!-- <depend>rclcpp</depend> -->
   <depend>controller_manager</depend>
   <depend>hardware_interface</depend>
   <depend>joint_state_broadcaster</depend>
   <depend>velocity_controllers</depend>
   <depend>mujoco_ros2_control</depend>
+  <!-- <depend>rclcpp</depend> -->
+  <depend>geometry_msgs</depend>
+
+  <build_depend>rclcpp</build_depend>
+  <build_export_depend>rclcpp</build_export_depend>
+  <exec_depend>rclcpp</exec_depend>
 
   <export>
     <build_type>ament_cmake</build_type>
