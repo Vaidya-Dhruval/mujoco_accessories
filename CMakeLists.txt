@@ -24,11 +24,11 @@ install(DIRECTORY
 )
 
 # Install executables
-add_executable(ridgeback_example src/ridgeback_example.cpp)
-ament_target_dependencies(ridgeback_example rclcpp geometry_msgs)
+add_executable(ridgeback_velocity_publisher src/ridgeback_velocity_publisher.cpp)
+ament_target_dependencies(ridgeback_velocity_publisher rclcpp geometry_msgs)
 
 install(TARGETS
-  ridgeback_example
+  ridgeback_velocity_publisher
   DESTINATION lib/${PROJECT_NAME}
 )
 ament_package()
