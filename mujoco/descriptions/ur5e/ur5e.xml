@@ -97,15 +97,15 @@
                 <joint name="wrist_3_joint" class="size1" />
                 <geom material="linkgray" mesh="wrist3" class="visual" />
                 <!-- <geom class="eef_collision" pos="0 0.08 0" quat="1 1 0 0" size="0.04 0.02"/> -->
-                <site
+                <!-- <site
                   name="attachment_site"
                   pos="0 0.1 0"
                   quat="-1 1 0 0"
-                />
+                /> -->
                 <!-- Site for FTS the base of the robotiq gripper -->
                 <!-- The site name will be used for the simulated hardware interface's name -->
                 <!-- If you have corresponding hardware, we recommend setting this to the hardware's hardware interface name -->
-                <site
+                <!-- <site
                   name="tcp_fts_sensor"
                   size="0.01"
                   pos="0.001 0.1 0"
@@ -134,25 +134,26 @@
                     material="linkgray"
                     class="visual"
                   />
-                </body>
+                </body> -->
                 <!-- The camera frame according to REP 103 -->
                 <!-- Positive X points to right of camera -->
                 <!-- Positive Y points up towards the top of the camera -->
                 <!-- Positive Z points to behind the camera -->
-                <camera
+                <!-- <camera
                   name="wrist_camera"
                   pos="0.0 0.2 0.05"
                   fovy="58"
                   mode="fixed"
                   resolution="640 480"
                   euler="1.57 0.0 0.0"
-                />
+                /> -->
                 <!-- The camera optical frame should be set to the <camera> position rotated 180 degrees about its x-axis -->
-                <site
+                <!-- <site
                   name="wrist_camera_optical_frame"
                   pos="0.0 0.2 0.05"
                   euler="-1.57 0 0"
-                />
+                /> -->
+                <!-- <include file="../robotiq_2f85/robotiq2f85.xml" /> -->
               </body>
             </body>
           </body>
