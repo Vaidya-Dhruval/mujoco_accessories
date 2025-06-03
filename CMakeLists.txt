@@ -31,4 +31,12 @@ install(TARGETS
   ridgeback_velocity_publisher
   DESTINATION lib/${PROJECT_NAME}
 )
+add_executable(ur5e_trajectory_publisher src/ur5e_trajectory_publisher.cpp)
+ament_target_dependencies(ur5e_trajectory_publisher rclcpp trajectory_msgs)
+
+install(TARGETS
+  ur5e_trajectory_publisher
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 ament_package()
