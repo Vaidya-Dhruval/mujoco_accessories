@@ -1,0 +1,19 @@
+<mujoco model="ridgeback_ur5e">
+  <!-- Compiler looks two levels up to find both mesh folders -->
+  <compiler meshdir="../../meshes" angle="radian" autolimits="true"/>
+  <option gravity="0 0 -9.81" integrator="implicitfast"/>
+
+  <!-- Global parameters for materials, actuators, etc. -->
+  <include file="ridgeback_globals_combined.xml"/>
+  <include file="ur5e_globals_combined.xml"/>
+
+  <worldbody>
+    <!-- Ridgeback base -->
+    <include file="../descriptions/ridgeback/ridgeback.xml"/>
+
+    <!-- UR5e robot mounted on top -->
+    <body name="ur5e_mount" pos="0.0 0.0 0.0" quat="0.707 0 0 0.707">
+      <include file="../descriptions/ur5e/ur5e.xml"/>
+    </body>
+  </worldbody>
+</mujoco>

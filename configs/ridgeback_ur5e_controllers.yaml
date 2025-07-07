@@ -1,0 +1,54 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100
+    use_sim_time: true
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    ridgeback_velocity_controller:
+      type: diff_drive_controller/DiffDriveController
+
+    ur5e_arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+ridgeback_velocity_controller:
+  ros__parameters:
+    left_wheel_names: ["front_left_wheel", "rear_left_wheel"]
+    right_wheel_names: ["front_right_wheel", "rear_right_wheel"]
+    wheel_separation: 0.638
+    wheel_radius: 0.551
+    publish_rate: 50.0
+    base_frame_id: ridgeback_base_link
+    use_stamped_vel: true
+    velocity_rolling_window_size: 10
+    open_loop: true
+    enable_odom_tf: false
+    cmd_vel_timeout: 0.25
+
+ur5e_arm_controller:
+  ros__parameters:
+    joints:
+      - ur5e_shoulder_pan_joint
+      - ur5e_shoulder_lift_joint
+      - ur5e_elbow_joint
+      - ur5e_wrist_1_joint
+      - ur5e_wrist_2_joint
+      - ur5e_wrist_3_joint
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    state_publish_rate: 100.0
+    action_monitor_rate: 20.0
+    allow_partial_joints_goal: true
+    constraints:
+      stopped_velocity_tolerance: 0.2
+      goal_time: 1.0
+      shoulder_pan_joint: { trajectory: 0.2, goal: 0.1 }
+      shoulder_lift_joint: { trajectory: 0.2, goal: 0.1 }
+      elbow_joint: { trajectory: 0.2, goal: 0.1 }
+      wrist_1_joint: { trajectory: 0.2, goal: 0.1 }
+      wrist_2_joint: { trajectory: 0.2, goal: 0.1 }
+      wrist_3_joint: { trajectory: 0.2, goal: 0.1 }

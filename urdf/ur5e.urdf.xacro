@@ -1,5 +1,10 @@
-<?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="ur5e">
+  <xacro:arg name="prefix" default="ur5e_"/>
+
   <xacro:include filename="$(find mujoco_accessories)/urdf/ur5e_macro.xacro"/>
   <xacro:include filename="$(find mujoco_accessories)/urdf/ur5e_ros2_control.xacro"/>
+
+  <!-- Apply prefix to the macro -->
+  <xacro:ur5e_macro prefix="${prefix}" />
+  <xacro:ur5e_ros2_control prefix="${prefix}" />
 </robot>

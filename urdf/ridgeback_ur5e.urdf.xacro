@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="ridgeback_ur5e">
+  <xacro:arg name="prefix" default="ur5e_"/>
+  <!-- Include Ridgeback Base -->
+  <xacro:include filename="$(find mujoco_accessories)/urdf/ridgeback.urdf.xacro" />
+
+  <!-- Optional prefix or hardware flags (if used downstream) -->
+  <xacro:arg name="use_fake_hardware" default="false"/>
+  <xacro:arg name="use_real_hardware" default="false"/>
+  <xacro:arg name="use_ros2_control" default="true"/>
+
+  <!-- Include UR5e Arm (renamed base link internally) -->
+  <xacro:include filename="$(find mujoco_accessories)/urdf/ur5e.urdf.xacro" />
+
+  <!-- Mount UR5e onto Ridgeback -->
+  <joint name="ur5e_mount_joint" type="fixed">
+    <parent link="mid_mount" />
+    <child link="ur5e_base_link" />
+    <origin xyz="0 0 0.01" rpy="0 0 0" />
+  </joint>
+
+</robot>
