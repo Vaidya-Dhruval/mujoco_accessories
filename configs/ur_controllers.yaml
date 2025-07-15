@@ -6,11 +6,13 @@ controller_manager:
     joint_state_broadcaster:
       type: joint_state_broadcaster/JointStateBroadcaster
 
-    joint_trajectory_controller:
+    ur5e_arm_controller:
       type: joint_trajectory_controller/JointTrajectoryController
 
-joint_trajectory_controller:
+ur5e_arm_controller:
   ros__parameters:
+    hardware_plugin_name: "ur5e_hardware"
+    resource_group: "ur5e"
     joints:
       - shoulder_pan_joint
       - shoulder_lift_joint

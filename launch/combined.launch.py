@@ -13,6 +13,8 @@ def generate_launch_description():
     xacro_file = os.path.join(pkg_path, 'urdf', 'ridgeback_ur5e.urdf.xacro')
     mujoco_model_path = os.path.join(pkg_path, 'mujoco', 'combined', 'combined_default.xml')
     controller_yaml = os.path.join(pkg_path, 'configs', 'ridgeback_ur5e_controllers.yaml')
+    ur5e_yaml = os.path.join(pkg_path, 'configs', 'ur_controllers.yaml')
+    ridgeback_yaml = os.path.join(pkg_path, 'configs', 'ridgeback_controllers.yaml')
 
     # Process Xacro (no mappings because prefix is removed)
     doc = xacro.parse(open(xacro_file))
@@ -47,6 +49,13 @@ def generate_launch_description():
         arguments=['joint_state_broadcaster'],
         output='screen'
     )
+    # Spawner: Joint Trajectory Controller
+    ur5e_spawner = Node(
+        package='controller_manager',
+        executable='spawner',
+        arguments=['ur5e_arm_controller', '--param-file', controller_yaml],
+        output='screen'
+    )
 
     # Ridgeback diff drive controller
     ridgeback_spawner = Node(
@@ -59,27 +68,25 @@ def generate_launch_description():
         output='screen'
     )
 
-    # UR5e joint trajectory controller
-    ur5e_spawner = Node(
-        package='controller_manager',
-        executable='spawner',
-        arguments=['ur5e_arm_controller', '--param-file', controller_yaml],
-        output='screen'
-    )
-
     return LaunchDescription([
+        mujoco_node,
+        state_publisher,
         RegisterEventHandler(
-            event_handler=OnProcessStart(
+            OnProcessStart(
                 target_action=mujoco_node,
                 on_start=[joint_state_spawner]
             )
         ),
         RegisterEventHandler(
-            event_handler=OnProcessExit(
+            OnProcessExit(
                 target_action=joint_state_spawner,
-                on_exit=[ridgeback_spawner, ur5e_spawner]
+                on_exit=[ridgeback_spawner]
             )
         ),
-        mujoco_node,
-        state_publisher,
+        RegisterEventHandler(
+            OnProcessExit(
+                target_action=ur5e_spawner,
+                on_exit=[ur5e_spawner]
+            )
+        ),
     ])

@@ -4,6 +4,7 @@
     <ros2_control name="ur5e" type="system">
     <hardware>
       <plugin>mujoco_ros2_control/MujocoSystem</plugin>
+      <param name="resource_group">ur5e</param>
       <param name="update_rate">100</param>
     </hardware>
     <joint name="shoulder_pan_joint">

@@ -322,6 +322,7 @@
   <ros2_control name="RidgebackSystem" type="system">
       <hardware>
       <plugin>mujoco_ros2_control/MujocoSystem</plugin>
+      <param name="resource_group">ridgeback</param>
     </hardware>
     <joint name="front_left_wheel">
       <command_interface name="velocity"/>
