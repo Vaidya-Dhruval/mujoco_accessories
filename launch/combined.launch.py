@@ -14,9 +14,9 @@ def generate_launch_description():
     mujoco_model_path = os.path.join(pkg_path, 'mujoco', 'combined', 'combined_default.xml')
     controller_yaml = os.path.join(pkg_path, 'configs', 'ridgeback_ur5e_controllers.yaml')
 
-    # Process Xacro with required 'prefix' argument for UR5e
+    # Process Xacro (no mappings because prefix is removed)
     doc = xacro.parse(open(xacro_file))
-    xacro.process_doc(doc, mappings={'prefix': 'ur5e_'})  # ✅ This line injects the required arg
+    xacro.process_doc(doc)
     robot_description = {'robot_description': doc.toxml()}
 
     # MuJoCo + ROS 2 Control node

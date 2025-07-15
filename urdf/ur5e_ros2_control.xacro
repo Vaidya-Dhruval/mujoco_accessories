@@ -1,37 +1,37 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="ur5e_ros2_control">
-  <xacro:arg name="prefix" default=""/>
+    <xacro:macro name="ur5e_ros2_control" params=""></xacro:macro>
     <ros2_control name="ur5e" type="system">
     <hardware>
       <plugin>mujoco_ros2_control/MujocoSystem</plugin>
       <param name="update_rate">100</param>
     </hardware>
-    <joint name="${prefix}shoulder_pan_joint">
+    <joint name="shoulder_pan_joint">
       <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
-    <joint name="${prefix}shoulder_lift_joint">
+    <joint name="shoulder_lift_joint">
       <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
-    <joint name="${prefix}elbow_joint">
+    <joint name="elbow_joint">
       <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
-    <joint name="${prefix}wrist_1_joint">
+    <joint name="wrist_1_joint">
       <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
-    <joint name="${prefix}wrist_2_joint">
+    <joint name="wrist_2_joint">
       <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
     </joint>
-    <joint name="${prefix}wrist_3_joint">
+    <joint name="wrist_3_joint">
       <command_interface name="position"/>
       <state_interface name="position"/>
       <state_interface name="velocity"/>
