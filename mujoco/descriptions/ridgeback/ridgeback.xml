@@ -121,6 +121,9 @@
                 />
                 <joint name="rotational_yaw_joint" axis="0 0 1" />
                 <!-- <include file="ur5e/ur5e.xml" /> -->
+                <body name="ur5e_mount" pos="0 0 0.25" quat="0.707 0 0 0.707">
+                    <include file="../ur5e/ur5e.xml" />
+                </body>
             </body>
         </body>
     </body>

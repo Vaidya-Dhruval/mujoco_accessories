@@ -21,21 +21,9 @@
     <!-- Ridgeback -->
     <include file="../descriptions/ridgeback/ridgeback.xml"/>
 
-    <!-- UR5e on Ridgeback -->
+    <!-- UR5e -->
     <body name="ur5e_mount" pos="0 0.0 0.0" quat="0.707 0 0 0.707">
       <include file="../descriptions/ur5e/ur5e.xml"/>
-    </body>
-
-    <!-- Table 1 (left) -->
-    <body name="table_1" pos="1.2 0.8 0.0">
-      <geom name="table_1_top" type="box" size="0.5 0.5 0.05" pos="0 0 0.45" material="table_material"/>
-      <geom name="table_1_leg" type="box" size="0.45 0.45 0.4" pos="0 0 0.05" material="table_leg_material"/>
-    </body>
-
-    <!-- Table 2 (right) -->
-    <body name="table_2" pos="1.2 -0.8 0.0">
-      <geom name="table_2_top" type="box" size="0.5 0.5 0.05" pos="0 0 0.45" material="table_material"/>
-      <geom name="table_2_leg" type="box" size="0.45 0.45 0.4" pos="0 0 0.05" material="table_leg_material"/>
     </body>
   </worldbody>
 </mujoco>
