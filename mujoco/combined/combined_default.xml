@@ -6,21 +6,36 @@
     <texture name="grid" type="2d" builtin="checker" width="512" height="512"
              rgb1="0.2 0.2 0.2" rgb2="0.1 0.1 0.1"/>
     <material name="grid" texture="grid" texrepeat="4 4" texuniform="true"/>
+    <material name="table_material" rgba="0.6 0.4 0.3 1"/>
+    <material name="table_leg_material" rgba="0.3 0.3 0.3 1"/>
   </asset>
 
   <include file="ridgeback_globals_combined.xml"/>
   <include file="ur5e_globals_combined.xml"/>
 
   <worldbody>
+    <!-- Floor and lights -->
     <geom name="floor" type="plane" size="10 10 0.1" material="grid"/>
     <light name="light" pos="0 0 3" dir="0 0 -1" castshadow="true"/>
 
     <!-- Ridgeback -->
     <include file="../descriptions/ridgeback/ridgeback.xml"/>
 
-    <!-- UR5e -->
+    <!-- UR5e on Ridgeback -->
     <body name="ur5e_mount" pos="0 0.0 0.0" quat="0.707 0 0 0.707">
       <include file="../descriptions/ur5e/ur5e.xml"/>
+    </body>
+
+    <!-- Table 1 (left) -->
+    <body name="table_1" pos="1.2 0.8 0.0">
+      <geom name="table_1_top" type="box" size="0.5 0.5 0.05" pos="0 0 0.45" material="table_material"/>
+      <geom name="table_1_leg" type="box" size="0.45 0.45 0.4" pos="0 0 0.05" material="table_leg_material"/>
+    </body>
+
+    <!-- Table 2 (right) -->
+    <body name="table_2" pos="1.2 -0.8 0.0">
+      <geom name="table_2_top" type="box" size="0.5 0.5 0.05" pos="0 0 0.45" material="table_material"/>
+      <geom name="table_2_leg" type="box" size="0.45 0.45 0.4" pos="0 0 0.05" material="table_leg_material"/>
     </body>
   </worldbody>
 </mujoco>

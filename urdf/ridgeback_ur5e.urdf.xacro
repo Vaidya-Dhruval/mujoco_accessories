@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="ridgeback_ur5e">
-  <xacro:arg name="prefix" default="ur5e_"/>
   <!-- Include Ridgeback Base -->
   <xacro:include filename="$(find mujoco_accessories)/urdf/ridgeback.urdf.xacro" />
 
