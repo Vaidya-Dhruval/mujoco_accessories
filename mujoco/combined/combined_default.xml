@@ -21,10 +21,6 @@
     <!-- Ridgeback -->
     <include file="../descriptions/ridgeback/ridgeback.xml"/>
 
-    <!-- UR5e -->
-    <body name="ur5e_mount" pos="0 0.0 0.0" quat="0.707 0 0 0.707">
-      <include file="../descriptions/ur5e/ur5e.xml"/>
-    </body>
   </worldbody>
 </mujoco>
 <!--  -->

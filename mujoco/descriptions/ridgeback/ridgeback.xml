@@ -4,30 +4,30 @@
         <body name="base_platform" pos="0 0 0" euler="0 0 0">
             <body name="ridgeback_base_link">
                 <geom
-                name="chassis_link"
-                mesh="chassis_link"
-                material="black"
-                type="mesh"
-                contype="0"
-                conaffinity="0"
-                group="2"
+                    name="chassis_link"
+                    mesh="chassis_link"
+                    material="black"
+                    type="mesh"
+                    contype="0"
+                    conaffinity="0"
+                    group="2"
                 />
                 <geom
-                name="riser_link"
-                size="0.2465 0.2465 0.0275"
-                pos="0 0 0.2475"
-                quat="0.92388 0 0 0.382683"
-                type="box"
-                rgba="0.4 0.4 0.4 1"
+                    name="riser_link"
+                    size="0.2465 0.2465 0.0275"
+                    pos="0 0 0.2475"
+                    quat="0.92388 0 0 0.382683"
+                    type="box"
+                    rgba="0.4 0.4 0.4 1"
                 />
                 <geom
-                name="top_link"
-                mesh="top_link"
-                material="black"
-                type="mesh"
-                contype="0"
-                conaffinity="0"
-                group="2"
+                    name="top_link"
+                    mesh="top_link"
+                    material="black"
+                    type="mesh"
+                    contype="0"
+                    conaffinity="0"
+                    group="2"
                 />
                 <body name="front_rocker_link" pos="0.319 0 0.05">
                     <inertial
@@ -44,34 +44,34 @@
                     />
                     <body name="front_left_wheel_link" pos="0 0.2755 0">
                         <inertial
-                        pos="0 0 0"
-                        quat="0.707107 0 0 0.707107"
-                        mass="2.3"
-                        diaginertia="0.0066424 0.0033212 0.0033212"
+                            pos="0 0 0"
+                            quat="0.707107 0 0 0.707107"
+                            mass="2.3"
+                            diaginertia="0.0066424 0.0033212 0.0033212"
                         />
                         <joint name="front_left_wheel" pos="0 0 0" axis="0 1 0" />
                         <geom
-                        name="front_left_wheel_link"
-                        size="0.0759 0.0395"
-                        quat="0.707107 0.707107 0 0"
-                        type="cylinder"
-                        rgba="0.15 0.15 0.15 1"
+                            name="front_left_wheel_link"
+                            size="0.0759 0.0395"
+                            quat="0.707107 0.707107 0 0"
+                            type="cylinder"
+                            rgba="0.15 0.15 0.15 1"
                         />
                     </body>
                     <body name="front_right_wheel_link" pos="0 -0.2755 0">
                         <inertial
-                        pos="0 0 0"
-                        quat="0.707107 0 0 0.707107"
-                        mass="2.3"
-                        diaginertia="0.0066424 0.0033212 0.0033212"
+                            pos="0 0 0"
+                            quat="0.707107 0 0 0.707107"
+                            mass="2.3"
+                            diaginertia="0.0066424 0.0033212 0.0033212"
                         />
                         <joint name="front_right_wheel" pos="0 0 0" axis="0 1 0" />
                         <geom
-                        name="front_right_wheel_link"
-                        size="0.0759 0.0395"
-                        quat="0.707107 0.707107 0 0"
-                        type="cylinder"
-                        rgba="0.15 0.15 0.15 1"
+                            name="front_right_wheel_link"
+                            size="0.0759 0.0395"
+                            quat="0.707107 0.707107 0 0"
+                            type="cylinder"
+                            rgba="0.15 0.15 0.15 1"
                         />
                     </body>
                 </body>
@@ -108,21 +108,84 @@
                     />
                 </body>
                 <joint
-                name="linear_x_joint"
-                type="slide"
-                axis="1 0 0"
-                range="-5.0 5.0"
+                    name="linear_x_joint"
+                    type="slide"
+                    axis="1 0 0"
+                    range="-5.0 5.0"
                 />
                 <joint
-                name="linear_y_joint"
-                type="slide"
-                axis="0 1 0"
-                range="-5.0 5.0"
+                    name="linear_y_joint"
+                    type="slide"
+                    axis="0 1 0"
+                    range="-5.0 5.0"
                 />
                 <joint name="rotational_yaw_joint" axis="0 0 1" />
-                <!-- <include file="ur5e/ur5e.xml" /> -->
-                <body name="ur5e_mount" pos="0 0 0.25" quat="0.707 0 0 0.707">
-                    <include file="../ur5e/ur5e.xml" />
+                <body name="ur5e_base" pos="0 0 0.2" euler="0 0 0">
+                    <inertial mass="4.0" pos="0 0 0"
+                        diaginertia="0.00443333156 0.00443333156 0.0072" />
+                    <geom mesh="base_0" material="black" class="visual" />
+                    <geom mesh="base_1" material="jointgray" class="visual" />
+                    <body name="ur5e_shoulder_link" pos="0 0 0.163">
+                        <inertial mass="3.7" pos="0 0 0" diaginertia="0.0102675 0.0102675 0.00666" />
+                        <joint name="ur5e_shoulder_pan_joint" class="size3" axis="0 0 1" />
+                        <geom mesh="shoulder_0" material="urblue" class="visual" />
+                        <geom mesh="shoulder_1" material="black" class="visual" />
+                        <geom mesh="shoulder_2" material="jointgray" class="visual" />
+                        <geom class="collision" size="0.06 0.06" pos="0 0 -0.04" />
+                        <body name="ur5e_upper_arm_link" pos="0 0.138 0" quat="1 0 1 0">
+                            <inertial mass="8.393" pos="0 0 0.2125"
+                                diaginertia="0.133886 0.133886 0.0151074" />
+                            <joint name="ur5e_shoulder_lift_joint" class="size3" axis="0 1 0" />
+                            <geom mesh="upperarm_0" material="linkgray" class="visual" />
+                            <geom mesh="upperarm_1" material="black" class="visual" />
+                            <geom mesh="upperarm_2" material="jointgray" class="visual" />
+                            <geom mesh="upperarm_3" material="urblue" class="visual" />
+                            <geom class="collision" pos="0 -0.04 0" quat="1 1 0 0" size="0.06 0.06" />
+                            <geom class="collision" size="0.05 0.2" pos="0 0 0.2" />
+                            <body name="ur5e_forearm_link" pos="0 -0.131 0.425">
+                                <inertial mass="2.275" pos="0 0 0.196"
+                                    diaginertia="0.0311796 0.0311796 0.004095" />
+                                <joint name="ur5e_elbow_joint" class="size3_limited" />
+                                <geom mesh="forearm_0" material="urblue" class="visual" />
+                                <geom mesh="forearm_1" material="linkgray" class="visual" />
+                                <geom mesh="forearm_2" material="black" class="visual" />
+                                <geom mesh="forearm_3" material="jointgray" class="visual" />
+                                <geom class="collision" pos="0 0.08 0" quat="1 1 0 0"
+                                    size="0.055 0.06" />
+                                <geom class="collision" size="0.038 0.19" pos="0 0 0.2" />
+                                <body name="ur5e_wrist_1_link" pos="0 0 0.392" quat="1 0 1 0">
+                                    <inertial mass="1.219" pos="0 0.127 0"
+                                        diaginertia="0.0025599 0.0025599 0.0021942" />
+                                    <joint name="ur5e_wrist_1_joint" class="size1" />
+                                    <geom mesh="wrist1_0" material="black" class="visual" />
+                                    <geom mesh="wrist1_1" material="urblue" class="visual" />
+                                    <geom mesh="wrist1_2" material="jointgray" class="visual" />
+                                    <geom class="collision" pos="0 0.05 0" quat="1 1 0 0"
+                                        size="0.04 0.07" />
+                                    <body name="ur5e_wrist_2_link" pos="0 0.127 0">
+                                        <inertial mass="1.219" pos="0 0 0.1"
+                                            diaginertia="0.0025599 0.0025599 0.0021942" />
+                                        <joint name="ur5e_wrist_2_joint" axis="0 0 1" class="size1" />
+                                        <geom mesh="wrist2_0" material="black" class="visual" />
+                                        <geom mesh="wrist2_1" material="urblue" class="visual" />
+                                        <geom mesh="wrist2_2" material="jointgray" class="visual" />
+                                        <geom class="collision" size="0.04 0.06" pos="0 0 0.04" />
+                                        <geom class="collision" pos="0 0.02 0.1" quat="1 1 0 0"
+                                            size="0.04 0.04" />
+                                        <body name="ur5e_wrist_3_link" pos="0 0 0.1">
+                                            <inertial mass="0.1889" pos="0 0.0771683 0"
+                                                quat="1 0 0 1"
+                                                diaginertia="0.000132134 9.90863e-05 9.90863e-05" />
+                                            <joint name="ur5e_wrist_3_joint" class="size1" />
+                                            <geom material="linkgray" mesh="wrist3" class="visual" />
+                                            <site name="ur5e_ee_site" pos="0 0 0.1" size="0.01"
+                                                rgba="1 0 0 1" />
+                                        </body>
+                                    </body>
+                                </body>
+                            </body>
+                        </body>
+                    </body>
                 </body>
             </body>
         </body>

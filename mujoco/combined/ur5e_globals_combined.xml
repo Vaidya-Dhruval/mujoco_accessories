@@ -34,13 +34,14 @@
   </asset>
 
   <actuator>
-    <general class="size3" name="shoulder_pan_joint" joint="shoulder_pan_joint" />
-    <general class="size3" name="shoulder_lift_joint" joint="shoulder_lift_joint" />
-    <general class="size3_limited" name="elbow_joint" joint="elbow_joint" />
-    <general class="size1" name="wrist_1_joint" joint="wrist_1_joint" />
-    <general class="size1" name="wrist_2_joint" joint="wrist_2_joint" />
-    <general class="size1" name="wrist_3_joint" joint="wrist_3_joint" />
+    <general class="size3" name="ur5e_shoulder_pan_joint" joint="ur5e_shoulder_pan_joint" />
+    <general class="size3" name="ur5e_shoulder_lift_joint" joint="ur5e_shoulder_lift_joint" />
+    <general class="size3_limited" name="ur5e_elbow_joint" joint="ur5e_elbow_joint" />
+    <general class="size1" name="ur5e_wrist_1_joint" joint="ur5e_wrist_1_joint" />
+    <general class="size1" name="ur5e_wrist_2_joint" joint="ur5e_wrist_2_joint" />
+    <general class="size1" name="ur5e_wrist_3_joint" joint="ur5e_wrist_3_joint" />
   </actuator>
+
 
   <default>
     <default class="ur5e">
