@@ -107,7 +107,7 @@
                         rgba="0.15 0.15 0.15 1"
                     />
                 </body>
-                <joint
+                <!-- <joint
                     name="linear_x_joint"
                     type="slide"
                     axis="1 0 0"
@@ -119,7 +119,7 @@
                     axis="0 1 0"
                     range="-5.0 5.0"
                 />
-                <joint name="rotational_yaw_joint" axis="0 0 1" />
+                <joint name="rotational_yaw_joint" axis="0 0 1" /> -->
                 <body name="ur5e_base" pos="0 0 0.2" euler="0 0 0">
                     <inertial mass="4.0" pos="0 0 0"
                         diaginertia="0.00443333156 0.00443333156 0.0072" />
@@ -178,7 +178,7 @@
                                                 diaginertia="0.000132134 9.90863e-05 9.90863e-05" />
                                             <joint name="ur5e_wrist_3_joint" class="size1" />
                                             <geom material="linkgray" mesh="wrist3" class="visual" />
-                                            <site name="ur5e_ee_site" pos="0 0 0.1" size="0.01"
+                                            <site name="ee_site" pos="0 0 0.1" size="0.01"
                                                 rgba="1 0 0 1" />
                                         </body>
                                     </body>
