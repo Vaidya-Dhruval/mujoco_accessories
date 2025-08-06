@@ -27,7 +27,7 @@
     <mesh name="top_link" file="ridgeback/top.stl" />
   </asset>
 
-  <!-- <actuator>
+  <actuator>
     <position
       class="rail"
       name="linear_x_joint"
@@ -49,10 +49,10 @@
       kp="75000"
       dampratio="1.0"
     />
-  </actuator> -->
-<actuator>
+  </actuator>
+<!-- <actuator> -->
   <!-- Ridgeback Base Velocity Actuators -->
-  <velocity
+  <!-- <velocity
     name="front_left_wheel"
     joint="front_left_wheel"
     kv="1.0"
@@ -76,7 +76,7 @@
     kv="1.0"
     ctrlrange="-10.0 10.0"
   />
-</actuator>
+</actuator> -->
 
 
 
