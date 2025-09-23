@@ -10,7 +10,7 @@ find_package(joint_state_broadcaster REQUIRED)
 find_package(velocity_controllers REQUIRED)
 find_package(mujoco_ros2_control REQUIRED)
 find_package(geometry_msgs REQUIRED)
-
+find_package(ur_description REQUIRED)
 
 # Install folders
 install(DIRECTORY
